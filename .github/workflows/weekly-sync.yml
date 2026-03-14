@@ -1,0 +1,33 @@
+name: Weekly Sync Upstream
+
+on:
+  schedule:
+    # 每周一 00:00 UTC 运行（对应北京时间 08:00）
+    - cron: '0 0 * * 1'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/AaronFeng753/Waifu2x-Extension-GUI.git
+          git fetch upstream
+
+      - name: Merge upstream changes
+        run: |
+          git checkout master
+          git merge upstream/master --no-edit
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
