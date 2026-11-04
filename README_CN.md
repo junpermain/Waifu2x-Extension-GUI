@@ -25,21 +25,15 @@
 
 支持的语言: English, 简体中文, 繁體中文.
 
-[🔗点击访问位于Gitee(码云, 开源中国)的安装包下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases)
-
-# [🌟下载测试版本 (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases)
-测试版与稳定版相比拥有更快的更新周期,可以让您提前体验到本软件最新的特性.
-
-⚠请注意,测试版与稳定版相比更不稳定,因为测试版在发布前未经完整测试.
-
-前往Releases页面下载测试版: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases
+[🔗点击访问位于Gitee(码云, 开源中国)的安装包下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases/latest)
 
 # Waifu2x-Extension-GUI是什么?
 
 ### 借助深度卷积神经网络对`图片` & `GIF` & `视频`进行`超分辨率`放大(即放大与降噪) 以及 对视频进行 `插帧(即补帧)`.
 
 ### ✨主要特性:
-- #### 📺自动化处理多种媒体: 支持处理 图片 的同时,实现了自动化处理 GIF&APNG 和 视频.
+- #### 💡简单无门槛: 解压即用. 内置 快捷预设 功能, 可帮助您一键调整各种设置. 
+- #### 📺自动化处理多种媒体: 支持处理 图片 的同时,实现了自动化处理 动态GIF&APNG&WebP 和 视频.
 - #### 😍全图像风格支持: 内置多种算法, 无论是 二次元动漫 还是 您日常拍摄的照片&录像 ,都可以进行清晰化处理.
 - #### 🎞视频插帧(补帧): 在对视频进行超分辨率后,自动对视频进行插帧以改进视频流畅度.
 - #### ⚡视频画面分析: 通过智能分析视频画面,来加快视频处理速度以及改进视频画质.
@@ -51,23 +45,29 @@
 - 😉易于使用的图形用户界面.
 - 📨持续的维护与更新.
 
+<p align="left">
+<img src="/.github/README/Powered_by_nvidia.jpg" height="70">
+</p>
+
 ```
 内置超分辨率算法:
-Waifu2x / SRMD / RealSR / Real-ESRGAN/ Real-CUGAN / Anime4K / ACNet
+Waifu2x / SRMD / RealSR / Real-ESRGAN/ Real-CUGAN / Anime4K
+ACNet / RTX Super Resolution (RTX VSR / RTX Video Super Resolution)
 
 内置超分辨率引擎:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan
 SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
-RealESRGAN-NCNN-Vulkan / Real-CUGAN-ncnn-vulkan
+RealESRGAN-NCNN-Vulkan / Real-CUGAN-ncnn-vulkan / RTX Super Resolution
 
 内置插帧算法:
-RIFE / CAIN / DAIN
+RIFE / CAIN / DAIN / IFRNet
 
 内置插帧引擎:
 rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
+IFRNet-ncnn-vulkan
 ```
 
-#### ✅已经在 `AMD` RX 550, `NVIDIA` GeForce RTX 3060 和 `Intel` UHD 620 上通过测试.
+#### ✅已经在 `AMD` RX 550, `NVIDIA` GeForce RTX 3060/4060 和 `Intel` UHD 620 上通过测试.
 
 ![mainwindow](/Screenshot/mainwindow_cn.jpg)
 
@@ -79,26 +79,24 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 
 # [示例👀](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/)
 
-### [➡对比(3D写实)(使用内置的RealESRGAN-NCNN-Vulkan引擎)](https://imgsli.com/NjQ4NzY)
+### [➡对比(3D写实)](https://imgsli.com/NjQ4NzY)
 #### [原照片来自Unsplash,由Jonatan Pie拍摄.](https://unsplash.com/photos/Yv9WbjBgZXY)
 ![Comparison](/Samples/image/Comparison_3D_Real-life.png)
 
-### [➡对比(2D动漫)(使用内置的Waifu2x-NCNN-Vulkan引擎)](https://imgsli.com/MzYzMTY)
-![Comparison](/Samples/image/Comparison.png)
+### [➡对比(2D动漫)](https://imgsli.com/MjUyNDAx)
+![Comparison](/Samples/image/Comparison.jpg)
 
-#### 原图 2D动漫图片 480x300 (.jpg 93.2 KB):
+#### 原图 2D动漫图片 480x300:
 ![Original Imgae](/Samples/image/Original_[480x300].jpg)
 
-#### 经过8x放大, 3级降噪和压缩后 3840x2400 (.jpg 525 KB):
-#### (使用内置的Waifu2x-NCNN-Vulkan引擎)
-![Scaled Imgae](/Samples/image/Waifu2x_8x_[3840x2400].jpg)
+#### 经过4x放大&降噪,以及JPG压缩后 1920x1200: [🔗对比](https://imgsli.com/MjUyNDA0)
+![Scaled Imgae](/Samples/image/Waifu2x_4x_[1920x1200].jpg)
 
-#### 原图 GIF 500 x 372 (493 KB):
+#### 原图 GIF 500 x 372:
 ![Original GIF](/Samples/gif/GIF_2_original.gif)
 
-#### 经过2x放大,2级降噪和gif优化后 1000 x 744 (3.77 MB):
-#### (使用内置的Waifu2x-NCNN-Vulkan引擎)
-![Original GIF](/Samples/gif/GIF_2_waifu2x_compressed.gif)
+#### 经过2x放大&降噪,以及gif优化后 1000 x 744:
+![Original GIF](/Samples/gif/GIF_2_waifu2x.gif)
 
 ### `github不支持在线播放视频, 请点击下方链接查看视频示例:`
 
@@ -116,7 +114,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 
 ![donate_new](/donate_new.jpg)
 
-#### 如果捐赠二维码图片无法正常加载,请[打开此链接查看](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/donate_new.jpg)或者[使用邮电部国家公用电信网提供的国际出入口信道进行国际联网](http://www.cac.gov.cn/1996-02/02/c_126468621.htm)后刷新页面.
+#### 如果捐赠二维码图片无法正常加载,请[打开此链接查看](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/donate_new.jpg).
 
 # [📄许可协议](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
 
@@ -157,11 +155,14 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 - Gifsicle: https://www.lcdf.org/gifsicle/
 - GIMP: https://www.gimp.org/
 - GNU Wget: https://www.gnu.org/software/wget/
+- IFRNet: https://github.com/ltkong218/IFRNet
+- ifrnet-ncnn-vulkan: https://github.com/nihui/ifrnet-ncnn-vulkan
 - ImageMagick: http://www.imagemagick.org/
 - ImDisk Toolkit: https://sourceforge.net/projects/imdisk-toolkit/
 - NCNN: https://github.com/Tencent/ncnn
 - NirCmd: https://www.nirsoft.net/utils/nircmd.html
 - NSIS: https://nsis.sourceforge.io/
+- Nvidia: https://www.nvidia.com/
 - OpenCV: https://opencv.org/
 - Pillow: https://python-pillow.org/
 - PyInstaller: https://github.com/pyinstaller/pyinstaller
